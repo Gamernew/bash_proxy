@@ -1,6 +1,7 @@
 #!/bin/sh
 echo "script installation et désintallation de la configuration du proxy à utiliser en (Root) crée par gamernew"
 
+if [ "su" ]; then
 cd /etc/apt/
 res=$(cat apt.conf)
 if [ "$res" = '# Acquire::http::Proxy "http://192.168.1.34:3142";' ];then
@@ -21,4 +22,5 @@ else
   else
     echo "Vous n'avez pas fait de modification"
   fi
+fi
 fi
